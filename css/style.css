@@ -150,6 +150,18 @@ b {
     top: 0;
 }
 
+.bg-overlay-mapping {
+    background: RGBA(25, 27, 46, 0.8);
+    /* opacity: 0.1; */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+}
+
 .bg-overlay-light {
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -412,6 +424,23 @@ iframe {
     font-size: 46px;
     line-height: 64px;
 }
+
+.home-title-mapping {
+    font-size: 68px;
+    font-weight: 500;
+
+    line-height: 68px;
+}
+
+@media (max-width: 768px) {
+  .home-title-mapping {
+      font-size: 42px;
+      font-weight: 500;
+
+      line-height: 42px;
+  }
+}
+
 
 .display-table-cell {
     display: table-cell;
