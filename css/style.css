@@ -212,6 +212,7 @@ iframe {
     transition: all .3s ease-in-out;
 }
 .hover-effect:hover {
+    
     transform: translateY(-1rem);
 }
 
@@ -1239,4 +1240,14 @@ textarea.form-control {
 	    max-height: 200px;
     	overflow-y: auto;
     }
+}
+
+
+.popover-gradient-class img {
+  background-image: linear-gradient(RGBA(40, 42, 50, 1.00),RGBA(40, 42, 50, 0.5)): url('images/solar-mapping-thumbnail.png');
+}
+
+
+.popover-gradient-class img:hover {
+  background-image: linear-gradient(RGBA(40, 42, 50, 1.00),RGBA(40, 42, 50, 0.5)): url('images/solar-mapping-thumbnail.png');
 }
