@@ -1243,12 +1243,68 @@ textarea.form-control {
     }
 }
 
+.hover-effect-product img {
+    transition: all .3s ease-in-out;
+}
+.hover-effect-product img:hover {
+    /* background: rgba(0, 0, 0, 0.5); */
 
-.popover-gradient-class img {
-  background-image: linear-gradient(RGBA(40, 42, 50, 1.00),RGBA(40, 42, 50, 0.5)): url('images/solar-mapping-thumbnail.png');
+    transform: translateY(-1rem);
 }
 
+/* .card-category-mapping {
+  background-size: cover;
+  object-fit: cover;
 
-.popover-gradient-class img:hover {
-  background-image: linear-gradient(RGBA(40, 42, 50, 1.00),RGBA(40, 42, 50, 0.5)): url('images/solar-mapping-thumbnail.png');
+  background-position: center;
+  height: 225px;
+  background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url(../images/solar-mapping-thumbnail.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 200px;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  transition: all .3s ease-in-out;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.card-category-mapping:hover {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/solar-mapping-thumbnail.png);
+  transform: translateY(-1rem);
+
+}
+
+.card-category-monitoring {
+  background-size: cover;
+  object-fit: cover;
+
+  background-position: center;
+  height: 225px;
+  background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url(../images/solar-monitoring-thumbnail.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 200px;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  transition: all .3s ease-in-out;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-category-monitoring:hover {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/solar-monitoring-thumbnail.png);
+  transform: translateY(-1rem);
+
+} */
+
+
+/* .popover-gradient-class {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('images/solar-mapping-thumbnail.png');
+} */
