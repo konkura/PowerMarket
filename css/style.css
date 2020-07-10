@@ -422,6 +422,11 @@ iframe {
     background-position: center;
 }
 
+.bg-book {
+    background: RGBA(0, 2, 30, 1.00);
+
+}
+
 .home-title {
     font-size: 46px;
     line-height: 64px;
