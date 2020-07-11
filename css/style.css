@@ -1326,3 +1326,43 @@ textarea.form-control {
 
   border-radius: 50%;
 }
+
+.social-link-bubbles {
+    border: 3px solid #dadcdf;
+    border-radius: 50%;
+    color: #dadcdf !important;
+    width: 12px;
+    position: relative;
+    height: 12px;
+    margin: 5px !important;
+    font-size: 16px;
+    line-height: 42px;
+    text-align: center;
+}
+
+.social-link-bubbles i {
+  /* padding-bottom: 15px !important; */
+  position: absolute;
+  text-align: center;
+}
+
+.services-box-team {
+    padding: 15px 10px;
+}
+
+.services-box-team i {
+    font-size: 32px;
+    height: 48px;
+    width: 48px;
+    background-color: RGBA(255, 255, 255, 1.00);
+    border-radius: 50%;
+    box-shadow: 0 0 1.25rem rgba(108,118,134,.1)!important;
+    line-height: 48px;
+    margin-bottom: 15px !important;
+}
+
+.services-box-team:hover i {
+    /* background-color: RGBA(87, 185, 158, 1.00) !important; */
+    color: RGBA(87, 185, 158, 1.00) !important;
+    transition: all .3s ease-in-out;
+}
