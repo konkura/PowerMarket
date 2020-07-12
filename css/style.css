@@ -1366,3 +1366,47 @@ textarea.form-control {
     color: RGBA(87, 185, 158, 1.00) !important;
     transition: all .3s ease-in-out;
 }
+
+
+
+
+
+.services-box-product {
+    padding: 15px 10px;
+}
+
+.services-box-product i {
+    font-size: 32px;
+    height: 24px;
+    width: 24px;
+    background-color: RGBA(255, 255, 255, 1.00);
+    border-radius: 50%;
+    box-shadow: 0 0 1.25rem rgba(108,118,134,.1)!important;
+    line-height: 26px;
+    margin-bottom: 10px !important;
+}
+
+.services-box-product:hover i {
+    /* background-color: RGBA(87, 185, 158, 1.00) !important; */
+    color: RGBA(87, 185, 158, 1.00) !important;
+    transition: all .3s ease-in-out;
+}
+
+.product-cta i{
+    font-size:12px;
+}
+
+/* @media (min-width: 768px) {
+  .product-cta {
+    display: none;
+  }
+} */
+
+
+.hover-effect-right {
+    transition: all .3s ease-in-out;
+}
+.hover-effect-right:hover {
+
+    transform: translateX(.5rem);
+}
