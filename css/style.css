@@ -1410,3 +1410,19 @@ textarea.form-control {
 
     transform: translateX(.5rem);
 }
+
+
+.partner-logo-strip img {
+  padding: 50px 0px;
+}
+
+@media (max-width: 768px) {
+  .partner-logo-strip img {
+    padding: 10px 0px;
+  }
+}
+
+
+/* .partner-logo-strip img {
+  padding: 10px 0px;
+} */
