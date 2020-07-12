@@ -1428,3 +1428,14 @@ textarea.form-control {
 /* .partner-logo-strip img {
   padding: 10px 0px;
 } */
+
+
+.c-action {
+  transition: all .3s ease-in-out;
+  text-align: center !important;
+  display: inline-block;
+}
+
+.c-action:hover {
+  transform: translateY(-.25rem);
+}
