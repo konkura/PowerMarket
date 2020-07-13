@@ -1324,15 +1324,17 @@ textarea.form-control {
 
 .avatar-large {
   width: 150px;
+  border: 1px solid #ffffff;
   margin-bottom: 15px;
-
+  box-shadow: 0 0 1.25rem rgba(108,118,134,.1)!important;
   border-radius: 50%;
 }
 
 .avatar-large-advisor {
   width: 100px;
   margin-bottom: 15px;
-
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 1.25rem rgba(108,118,134,.1)!important;
   border-radius: 50%;
 }
 
