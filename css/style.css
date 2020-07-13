@@ -888,7 +888,7 @@ iframe {
 .bg-get-start{
     /* background: url("../images/img-2.jpg"); */
     /* background-color: #191B2F; */
-    background-image: linear-gradient(RGBA(25, 27, 46, 0.6), RGBA(25, 27, 46, 0.6)), url(../images/img-1.jpg);
+    background-image: linear-gradient(RGBA(25, 27, 46, 0.2), RGBA(25, 27, 46, 0.8)), url(../images/img-1.jpg);
     /* background: url("../images/img-1.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
