@@ -1329,6 +1329,13 @@ textarea.form-control {
   border-radius: 50%;
 }
 
+.avatar-large-advisor {
+  width: 100px;
+  margin-bottom: 15px;
+
+  border-radius: 50%;
+}
+
 .social-link-bubbles {
     border: 3px solid #dadcdf;
     border-radius: 50%;
@@ -1411,6 +1418,15 @@ textarea.form-control {
 .hover-effect-right:hover {
 
     transform: translateX(.5rem);
+}
+
+
+.hover-effect-social-link {
+    transition: all .3s ease-in-out;
+}
+.hover-effect-social-link:hover {
+
+    transform: translateY(-.25rem);
 }
 
 
