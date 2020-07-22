@@ -896,6 +896,16 @@ iframe {
     background-position: center;
 }
 
+.work-with-us{
+    /* background: url("../images/img-2.jpg"); */
+    /* background-color: #191B2F; */
+    background: linear-gradient(RGBA(25, 27, 46, 1), RGBA(25, 27, 46, 1));
+    /* background: url("../images/img-1.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 /*=======================================
        14. BLOG
 =========================================*/
