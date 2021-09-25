@@ -1472,3 +1472,11 @@ textarea.form-control {
 .c-action:hover {
   transform: translateY(-.25rem);
 }
+
+.demo-frame {
+  overflow: hidden;
+  padding: 2em;
+  margin-bottom: 50px; 
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
