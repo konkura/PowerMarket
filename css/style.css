@@ -430,14 +430,14 @@ iframe {
     background-position: center;
 }
 
-/* @media only screen and (max-width: 500px) {
+@media only screen and (max-width: 500px) {
   .bg-home {
     background-color: #00021E;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
   }
-} */
+}
 
 .bg-book {
     background: RGBA(0, 2, 30, 1.00);
