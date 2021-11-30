@@ -756,6 +756,13 @@ iframe {
     line-height: 32px;
 }
 
+.features-box-blurb {
+    margin-bottom: 25px;
+    margin-top: 0;
+    line-height: 32px;
+    padding: 10px;
+}
+
 .features-item-list li:before {
     content: "";
     border-radius: 50%;
