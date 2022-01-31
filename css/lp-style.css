@@ -8,7 +8,7 @@ body {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  height: 60vh;
+  height: 65vh;
 }
 
 .banner h1 {
@@ -143,4 +143,11 @@ body {
     border-radius: 8px;
     transition: all .3s ease-in-out;
     box-shadow: 0 0 1.25rem rgba(108,118,134,.1)!important;
+}
+
+.ButtonWrapper-sc-__sc-1qu8p4z-0 {
+  display: none;
+  }
+.BrandButton {
+  display: none;
 }
