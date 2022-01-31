@@ -151,3 +151,15 @@ body {
 .BrandButton {
   display: none;
 }
+
+@media (max-width: 768px) {
+
+  .lp-blurb p {
+      padding: 60px 25px 30px;
+      line-height: 24px;
+      /* font-style: italic; */
+      font-weight: 400;
+      line-height: 35px;
+      font-size: 18px;
+  }
+}
