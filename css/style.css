@@ -140,8 +140,8 @@ b {
 
 .bg-overlay {
     background: RGBA(25, 27, 46, 0.7);
-    /* opacity: 0.1; */
-    /* position: absolute; */
+    opacity: 0.1;
+    position: absolute;
     height: 100%;
     width: 100%;
     right: 0;
@@ -167,6 +167,13 @@ b {
 }
 
 .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    position: relative;
+    /* background: RGBA(24, 28, 46, 1.00); */
+}
+
+.section-telcos {
     padding-top: 80px;
     padding-bottom: 80px;
     /* position: relative; */
@@ -428,6 +435,7 @@ iframe {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-color: RGBA(2, 5, 29, 0.5);
 }
 
 @media only screen and (max-width: 500px) {
