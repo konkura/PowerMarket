@@ -217,11 +217,11 @@ iframe {
 
 
 .hover-effect {
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 .hover-effect:hover {
 
-    transform: translateY(-1rem);
+    transform: translateY(-.25rem);
 }
 
 /*----BACKGROUND COLOR-----*/
@@ -929,6 +929,46 @@ iframe {
     font-style: italic;
 }
 
+.jobs {
+    border: 1px solid #ecf0f5;
+    border-radius: 6px;
+    transition: all .3s ease-in-out;
+    box-shadow: 0 0 1.25rem rgba(108,118,134,.1)!important;
+    background: #fff;
+}
+
+/* .jobs:hover{
+
+    background: #FAFBFE;
+} */
+
+.jobs-box img {
+    margin: -40px auto;
+    height: 68px;
+    width: 68px;
+}
+
+.jobs p {
+    padding-left: 25px;
+    color: RGBA(24, 26, 43, 1.00);
+    text-align: left;
+  }
+
+.job-tag {
+  text-align: right !important;
+  padding-right: 25px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.jobs h5 {
+    text-decoration: none !important;
+    /* padding-top: 25px;
+    padding-bottom: 25px; */
+    padding: 25px 25px 10px 25px;
+    color: RGBA(24, 26, 43, 1.00);
+}
+
 /*=====================================
      13. GET STARTED
 ======================================*/
@@ -1309,12 +1349,12 @@ textarea.form-control {
 }
 
 .hover-effect-product img {
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 .hover-effect-product img:hover {
     /* background: rgba(0, 0, 0, 0.5); */
 
-    transform: translateY(-1rem);
+    transform: translateY(-.5rem);
 }
 
 .c-section {
