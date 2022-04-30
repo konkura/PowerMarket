@@ -1566,3 +1566,56 @@ textarea.form-control {
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.counter{
+
+   color: #fff;
+
+   text-align: center;
+   width: 190px;
+   padding: 25px 30px 10px;
+   margin: 0 auto;
+   border-radius: 30px 0 ;
+
+   position: relative;
+   z-index: 1;
+}
+.counter:before{
+   content: "";
+
+   ;
+
+   position: absolute;
+;
+   z-index: -1;
+}
+.counter .counter-icon{
+   font-size: 35px;
+   margin: 0 0 10px;
+
+}
+
+.counter h3{
+   font-size: 17px;
+   font-weight: 500;
+   color: #fff;
+}
+
+
+.counter .counter-value{
+   color: #fff;
+
+   font-size: 42px;
+   font-weight: 600;
+   text-align: right;
+   line-height: 60px;
+   width: 90%;
+   height: 50px;
+   padding: 0 15px;
+   margin: 0 0 0 -20px;
+   /* display: block; */
+}
+.counter.pink:before{ background-color: #FF5D94; }
+@media screen and (max-width:990px){
+   .counter{ margin-bottom: 40px; }
+}
