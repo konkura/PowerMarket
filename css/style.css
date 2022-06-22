@@ -1619,3 +1619,12 @@ textarea.form-control {
 @media screen and (max-width:990px){
    .counter{ margin-bottom: 40px; }
 }
+
+.funnel-animation {
+  animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
