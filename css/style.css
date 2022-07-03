@@ -1595,7 +1595,7 @@ textarea.form-control {
 
 }
 
-.counter h3{
+.counter h3, .counter-title{
    font-size: 17px;
    font-weight: 500;
    color: #fff;
