@@ -1620,9 +1620,6 @@ textarea.form-control {
    .counter{ margin-bottom: 40px; }
 }
 
-.funnel-animation {
-  animation: fadeIn 1.5s;
-}
 
 @keyframes fadeIn {
   0% { opacity: 0; }
