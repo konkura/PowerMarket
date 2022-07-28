@@ -438,7 +438,7 @@
     .power_marker {
         position: absolute;
         border-radius: 100%;
-        transition: all 1.2s ease-in;
+        transition: all 2s ease-in;
         background-blend-mode: color-dodge;
         mix-blend-mode: hard-light;
     }
@@ -490,18 +490,20 @@
             max-width: 1300px;
         }
     }
+
     .close-button {
-        position:relative;
-        width:28px;
-        height:28px;
+        position: relative;
+        width: 28px;
+        height: 28px;
     }
-    .close-button span{
-        height:3px;
+
+    .close-button span {
+        height: 3px;
         width: 100%;
-        background:white;
-        display:block;
+        background: white;
+        display: block;
         border-radius: 10px;
-        position:absolute;
+        position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
@@ -509,17 +511,16 @@
     }
 
 
-    .card:not(.open) .close-button span:nth-child(2){
+    .card:not(.open) .close-button span:nth-child(2) {
         transform: translate(-50%, -50%) rotate(90deg);
     }
 </style>
 <script>
-    const isInViewport = (elem) => {
+    const isInViewport = (elem, value = 0) => {
         let bounding = elem.getBoundingClientRect();
         return (
-            bounding.top >= 0 &&
             bounding.left >= 0 &&
-            bounding.bottom + 150 <= (window.innerHeight || document.documentElement.clientHeight) &&
+            bounding.bottom + value <= (window.innerHeight || document.documentElement.clientHeight) &&
             bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
         );
     };
@@ -579,9 +580,14 @@
             markers_field.appendChild(marker);
         }
     }
-
+    let animated = false;
     const style_anim = () => {
         let markers = document.querySelectorAll('.power_marker');
+        if (animated || markers.length <= 0) {
+            return;
+        } else {
+            animated = true;
+        }
         let x = 0;
         let y = 0;
         let green = [];
@@ -710,27 +716,68 @@
             item.style.top = y + 'px';
         });
     }
-    const scroll_anim = () => {
+    const style_re_anim = () => {
+        let markers = document.querySelectorAll('.power_marker');
+        if (!animated || markers.length <= 0) {
+            return;
+        } else {
+            animated = false;
+        }
+        markers.forEach(marker => {
+            let x = marker.dataset.left ? - Math.floor(Math.random() * 350) : Math.floor(Math.random() * 350);
+            let y = Math.floor(Math.random() * 400);
+            marker.style.transform = 'translate(' + x + 'px,-50%)'
+            marker.style.top = y + 'px';
+        })
+    }
+    let lastScrollTop = 0;
+    let scroll_down = false;
+    const scroll_anim = (e) => {
+        let st = window.scrollY || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+        if (st > lastScrollTop) {
+            scroll_down = true;
+        } else {
+            scroll_down = false;
+        }
+        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+
         let ex_row = document.getElementById('execution_row');
         let plan_row = document.getElementById('planning_row');
         let mon_row = document.getElementById('monitoring_row');
-        if (isInViewport(ex_row)) {
-            $(ex_row).find('.card').addClass('open');
-            $(ex_row).find('.card-body').slideDown();
-        }
-        if (isInViewport(plan_row)) {
-            $(plan_row).find('.card').addClass('open');
-            $(plan_row).find('.card-body').slideDown();
-        }
-        if (isInViewport(mon_row)) {
-            $(plan_row).find('.card').addClass('open');
-            $(mon_row).find('.card-body').slideDown();
+        if (scroll_down) {
+            if (isInViewport(plan_row, 100)) {
+                style_anim();
+                $(plan_row).find('.card').addClass('open');
+                $(plan_row).find('.card-body').slideDown('slow');
+            }
+            if (isInViewport(ex_row, 100)) {
+                $(ex_row).find('.card').addClass('open');
+                $(ex_row).find('.card-body').slideDown('slow');
+            }
+            if (isInViewport(mon_row, 100)) {
+                $(plan_row).find('.card').addClass('open');
+                $(mon_row).find('.card-body').slideDown('slow');
+            }
+        } else {
+            if (!isInViewport(plan_row, 400)) {
+                $(plan_row).find('.card').removeClass('open');
+                $(plan_row).find('.card-body').slideUp('slow');
+            }
+            if (!isInViewport(ex_row, 400)) {
+                style_re_anim()
+                $(ex_row).find('.card').removeClass('open');
+                $(ex_row).find('.card-body').slideUp('slow');
+            }
+            if (!isInViewport(mon_row, 400)) {
+                $(plan_row).find('.card').removeClass('open');
+                $(mon_row).find('.card-body').slideUp('slow');
+            }
+
         }
     }
     document.addEventListener('DOMContentLoaded', () => {
         scroll_anim();
         build_markers();
-        setTimeout(style_anim, 3000)
     })
     $(document).ready(function () {
         window.addEventListener('scroll', scroll_anim);
