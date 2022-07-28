@@ -175,7 +175,6 @@
         top: 0;
         left: 50%;
         transform: translateX(-50%);
-        border: 2px solid red;
     }
 
     .power_marker {
@@ -188,47 +187,58 @@
     .power_marker {
         position: absolute;
         border-radius: 100%;
-        transition: all 0.5s ease-in;
+        transition: all 1.2s ease-in;
+        background-blend-mode: color-dodge;
+        mix-blend-mode: hard-light;
     }
 
     .power_marker.size_1 {
-        width: 8px;
-        height: 8px;
+        width: 18px;
+        height: 18px;
     }
 
     .power_marker.size_2 {
-        width: 12px;
-        height: 12px;
+        width: 24px;
+        height: 24px;
     }
 
     .power_marker.size_3 {
-        width: 16px;
-        height: 16px;
+        width: 32px;
+        height: 32px;
     }
 
     .power_marker.marker_red {
-        background: red;
+        background: radial-gradient(
+                43.03% 42.89% at 50% 50.27%,
+                #DF0003 3%,
+                #DF0003 15.1%,
+                rgba(223, 0, 3, 0.73) 44.27%,
+                rgba(223, 0, 3, 0) 100%)
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
     }
 
     .power_marker.marker_orange {
-        background: orange;
+        background: radial-gradient(43.03% 42.89% at 50% 50.27%, #F7A22D 3%, #F7A22D 15.1%, rgba(247, 162, 45, 0.73) 44.27%, rgba(247, 162, 45, 0) 100%);
     }
 
     .power_marker.marker_yellow {
-        background: yellow;
+        background: radial-gradient(43.03% 42.89% at 50% 50.27%, #FEFE00 3%, #FEFE00 15.1%, rgba(254, 254, 0, 0.73) 44.27%, rgba(254, 254, 0, 0) 100%);
     }
 
     .power_marker.marker_green {
-        background: green;
+        background: radial-gradient(43.03% 42.89% at 50% 50.27%, #53ED29 3%, #53ED29 15.1%, rgba(83, 237, 41, 0.73) 30.73%, rgba(83, 237, 41, 0) 100%);
     }
 </style>
 <script>
+    const size_1 = 16;
+    const size_2 = 24;
+    const size_3 = 32;
     let build_markers = () => {
         let markers_field = document.getElementById('markers_field');
 
         const marker_radius = 8;
 
-        for (let i = 0; i <= 200; i++) {
+        for (let i = 0; i <= 300; i++) {
             let marker = document.createElement('span');
             marker.classList.add('power_marker');
             let color = Math.floor(Math.random() * 4);
@@ -270,49 +280,147 @@
             marker.style.transform = 'translate(' + x + 'px,-50%)'
             marker.style.top = y + 'px';
             marker.style.left = '50%';
+            if(x < 0){
+                marker.dataset.left = '1';
+            }
             markers_field.appendChild(marker);
         }
     }
 
     let style_anim = () => {
-        let markers_field = document.getElementById('markers_field');
         let markers = document.querySelectorAll('.power_marker');
         let x = 0;
         let y = 0;
+        let green = [];
+        let red = [];
+        let orange = [];
+        let yellow = []
         markers.forEach(item => {
             switch (item.dataset.color) {
                 case 'red':
-                     x = 300 - Math.floor(Math.random() * 600);
-                    y = Math.abs(400 - Math.floor(Math.random() * 300))
-                    item.style.transform = 'translate(' + x + 'px,-50%)'
-                    item.style.top = y + 'px';
+                    red.push(item);
                     break;
                 case 'orange':
-                    x = 200 - Math.floor(Math.random() * 400);
-                    y = 300 + Math.abs(400 - Math.floor(Math.random() * 300))
-                    item.style.transform = 'translate(' + x + 'px,-50%)'
-                    item.style.top = y + 'px';
+                    orange.push(item);
                     break;
                 case 'yellow':
-                    x = 100 - Math.floor(Math.random() * 200);
-                    y = 600 + Math.abs(400 - Math.floor(Math.random() * 300))
-                    item.style.transform = 'translate(' + x + 'px,-50%)'
-                    item.style.top = y + 'px';
+                    yellow.push(item);
                     break;
                 case 'green':
-                    x = 50 - Math.floor(Math.random() * 100);
-                    y = 900 + Math.abs(400 - Math.floor(Math.random() * 300))
-                    item.style.transform = 'translate(' + x + 'px,-50%)'
-                    item.style.top = y + 'px';
-                    break;
+                    green.push(item);
                     break;
             }
         })
+        red.forEach((item, index) => {
+            if(index < red.length / 3){
+                x = item.dataset.left ? - Math.floor(Math.random() * 270) : Math.floor(Math.random() * 270);
+                y = 200 - (50-Math.floor(Math.random() * 100))
+            } else if(index < (red.length / 1.5)) {
+                x = item.dataset.left ? - Math.floor(Math.random() * 300) : Math.floor(Math.random() * 300);
+                y = 300 - (50 - Math.floor(Math.random() * 100))
+            } else {
+                x = item.dataset.left ? - Math.floor(Math.random() * 270 ) : Math.floor(Math.random() * 270);
+                y = 400 - (50 - Math.floor(Math.random() * 100))
+            }
+
+            switch (item.dataset.size) {
+                case '1':
+                    x -= size_1 / 2;
+                    break;
+                case '2':
+                    x -= size_2 / 2;
+                    break;
+                case '3':
+                    x -= size_3 / 2;
+                    break;
+            }
+
+            item.style.transform = 'translate(' + x + 'px,-50%)'
+            item.style.top = y + 'px';
+        });
+        orange.forEach((item, index) => {
+            if(index < orange.length / 3){
+                x = item.dataset.left ? - Math.floor(Math.random() * 250) : Math.floor(Math.random() * 250);
+                y = 500 - (50 - Math.floor(Math.random() * 100))
+            } else if(index < (orange.length / 1.5)) {
+                x = item.dataset.left ? - Math.floor(Math.random() * 205) : Math.floor(Math.random() * 205);
+                y = 600 - (50 - Math.floor(Math.random() * 100))
+            } else {
+                x = item.dataset.left ? - Math.floor(Math.random() * 180 ) : Math.floor(Math.random() * 180);
+                y = 700 - (50 - Math.floor(Math.random() * 100))
+            }
+
+            switch (item.dataset.size) {
+                case '1':
+                    x -= size_1 / 2;
+                    break;
+                case '2':
+                    x -= size_2 / 2;
+                    break;
+                case '3':
+                    x -= size_3 / 2;
+                    break;
+            }
+            item.style.transform = 'translate(' + x + 'px,-50%)'
+            item.style.top = y + 'px';
+        });
+        yellow.forEach((item, index) => {
+            if(index < yellow.length / 3){
+                x = item.dataset.left ? - Math.floor(Math.random() * 155) : Math.floor(Math.random() * 155);
+                y = 800 - (50 - Math.floor(Math.random() * 100))
+            } else if(index < (yellow.length / 1.5)) {
+                x = item.dataset.left ? - Math.floor(Math.random() * 135) : Math.floor(Math.random() * 135);
+                y = 900 - (50 - Math.floor(Math.random() * 100))
+            } else {
+                x = item.dataset.left ? - Math.floor(Math.random() * 110 ) : Math.floor(Math.random() * 110);
+                y = 1000 - (50 - Math.floor(Math.random() * 100))
+            }
+
+            switch (item.dataset.size) {
+                case '1':
+                    x -= size_1 / 2;
+                    break;
+                case '2':
+                    x -= size_2 / 2;
+                    break;
+                case '3':
+                    x -= size_3 / 2;
+                    break;
+            }
+            item.style.transform = 'translate(' + x + 'px,-50%)'
+            item.style.top = y + 'px';
+        });
+        green.forEach((item, index) => {
+            if(index < green.length / 3){
+                x = item.dataset.left ? - Math.floor(Math.random() * 90) : Math.floor(Math.random() * 90);
+                y = 1100 - (50 - Math.floor(Math.random() * 100))
+            } else if(index < (green.length / 1.5)) {
+                x = item.dataset.left ? - Math.floor(Math.random() * 60) : Math.floor(Math.random() * 60);
+                y = 1200 - (50 - Math.floor(Math.random() * 100))
+            } else {
+                x = item.dataset.left ? - Math.floor(Math.random() * 35 ) : Math.floor(Math.random() * 35);
+                y = 1300 - (50 - Math.floor(Math.random() * 100))
+            }
+
+            switch (item.dataset.size) {
+                case '1':
+                    x -= size_1 / 2;
+                    break;
+                case '2':
+                    x -= size_2 / 2;
+                    break;
+                case '3':
+                    x -= size_3 / 2;
+                    break;
+            }
+            item.style.transform = 'translate(' + x + 'px,-50%)'
+            item.style.top = y + 'px';
+        });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
         build_markers();
-        setTimeout(style_anim, 2000)
+        setTimeout(style_anim, 3000)
     })
 </script>
 
