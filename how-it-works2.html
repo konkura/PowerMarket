@@ -133,296 +133,95 @@
         <p class="h4 text-center text-white mb-0 mt-3">Deep Learning</p>
       </div>
     </div>
+  </div>
 
-    <div class="container py-5">
-      <div id="power-container">
-        <div id="markers_field"></div>
-        <div id="cone">
-          <img src="/images/how_it_works/cone.svg" alt="Solar Power">
+  <div class="container container-lg ">
+    <div id="power-container">
+      <div id="markers_field"></div>
+      <div id="cone">
+        <img src="/images/how_it_works/cone.svg" alt="Solar Power">
+      </div>
+      <div id="planning_row" class="d-flex align-items-start justify-content-between">
+        <div class="card closed bg-transparent border">
+          <div class="card-header d-flex align-items-center justify-content-between py-3">
+            <div class="h2 text-white mb-0">Planning</div>
+            <div class="close-button">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="card-body text-white">
+            <p>Historically. a thorough ‘solar analysis’ typically takes months of man hours and with the usual
+              arbitrary site selection, generally resulted in a disappointing return on investment.</p>
+            <p>By using advanced satellite imagery and weather data, thousands of buildings/sites can be analysed,
+              filtered, and mapped in minutes by the PowerMarket Platform. The automated calculation of individual ROI
+              and CO2 impacts results in a detailed financial and environmental impact report for a fully informed and
+              accurate decision-making process.</p>
+          </div>
+        </div>
+        <div class="solar_situation d-flex justify-content-between">
+          <div class="d-flex flex-column justify-content-between text-white text-right mr-3">
+            <span>Non suitable for solar</span>
+            <span>Ideal for solar</span>
+          </div>
+          <div class="metric_line"></div>
+        </div>
+      </div>
+      <div id="execution_row" class="d-flex align-items-start justify-content-between">
+        <div class="solar_situation d-flex justify-content-between">
+          <div class="metric_line"></div>
+          <div class="d-flex flex-column justify-content-between text-white text-left ml-3">
+            <span>Non suitable for solar</span>
+            <span>Ideal for solar</span>
+          </div>
+        </div>
+        <div class="card closed bg-transparent border">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <div class="h2 text-white mb-0">Execution</div>
+            <div class="close-button">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="card-body text-white">
+            <p>The wide range of software tools usually required to manually manage, verify & document these solar
+              projects, resulted in a complex, costly and challenging workload often with questionable results.
+              PowerMarket’s AI & ML powered platform enables project execution streamlining delivering the appropriate
+              communications, accurate project documentation with multiple site data input capabilities that saves
+              significant time and manpower costs. </p>
+          </div>
+        </div>
+      </div>
+      <div id="monitoring_row" class="d-flex align-items-start justify-content-between">
+        <div class="card closed bg-transparent border">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <div class="h2 text-white mb-0">Monitoring</div>
+            <div class="close-button">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="card-body text-white">
+            <p>Managing your Past solar portfolio management was usually done through using long, outdated spreadsheets
+              that are rarely accurately well maintained especially with multiple sites and the need to use a variety of
+              web interfaces.</p>
+            <p>PowerMarket users can now view and monitor their entire portfolio, in real-time, without any expensive or
+              high-maintenance hardware. Our market leading AI-enabled fault detection and performance optimisation
+              system gives early warning to maintenance teams and maximises your ROI with real-time savings and CO2
+              environment impact reporting generated at the click of a button.</p>
+          </div>
+        </div>
+        <div class="solar_situation d-flex justify-content-between">
+          <div class="d-flex flex-column justify-content-between text-white text-right mr-3">
+            <span>Non suitable for solar</span>
+            <span>Ideal for solar</span>
+          </div>
+          <div class="metric_line"></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-    #cone {
-        padding-top: 100px;
-    }
-
-    #cone::selection {
-        background: transparent;
-    }
-
-    #cone img {
-        width: 600px;
-        display: block;
-        margin: 0 auto;
-    }
-
-    #cone img::selection {
-        background: transparent;
-    }
-
-    #power-container {
-        position: relative;
-    }
-
-    #markers_field {
-        width: 700px;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .power_marker {
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        border-radius: 100%;
-    }
-
-    .power_marker {
-        position: absolute;
-        border-radius: 100%;
-        transition: all 1.2s ease-in;
-        background-blend-mode: color-dodge;
-        mix-blend-mode: hard-light;
-    }
-
-    .power_marker.size_1 {
-        width: 18px;
-        height: 18px;
-    }
-
-    .power_marker.size_2 {
-        width: 24px;
-        height: 24px;
-    }
-
-    .power_marker.size_3 {
-        width: 32px;
-        height: 32px;
-    }
-
-    .power_marker.marker_red {
-        background: radial-gradient(
-                43.03% 42.89% at 50% 50.27%,
-                #DF0003 3%,
-                #DF0003 15.1%,
-                rgba(223, 0, 3, 0.73) 44.27%,
-                rgba(223, 0, 3, 0) 100%)
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-    }
-
-    .power_marker.marker_orange {
-        background: radial-gradient(43.03% 42.89% at 50% 50.27%, #F7A22D 3%, #F7A22D 15.1%, rgba(247, 162, 45, 0.73) 44.27%, rgba(247, 162, 45, 0) 100%);
-    }
-
-    .power_marker.marker_yellow {
-        background: radial-gradient(43.03% 42.89% at 50% 50.27%, #FEFE00 3%, #FEFE00 15.1%, rgba(254, 254, 0, 0.73) 44.27%, rgba(254, 254, 0, 0) 100%);
-    }
-
-    .power_marker.marker_green {
-        background: radial-gradient(43.03% 42.89% at 50% 50.27%, #53ED29 3%, #53ED29 15.1%, rgba(83, 237, 41, 0.73) 30.73%, rgba(83, 237, 41, 0) 100%);
-    }
-</style>
-<script>
-    const size_1 = 16;
-    const size_2 = 24;
-    const size_3 = 32;
-    let build_markers = () => {
-        let markers_field = document.getElementById('markers_field');
-
-        const marker_radius = 8;
-
-        for (let i = 0; i <= 300; i++) {
-            let marker = document.createElement('span');
-            marker.classList.add('power_marker');
-            let color = Math.floor(Math.random() * 4);
-            switch (color) {
-                case 0:
-                    marker.classList.add('marker_red')
-                    marker.dataset.color = 'red';
-                    break;
-                case 1:
-                    marker.classList.add('marker_orange')
-                    marker.dataset.color = 'orange';
-                    break;
-                case 2:
-                    marker.classList.add('marker_yellow')
-                    marker.dataset.color = 'yellow';
-                    break;
-                case 3:
-                    marker.classList.add('marker_green')
-                    marker.dataset.color = 'green';
-                    break;
-            }
-            let size = Math.floor(Math.random() * 3);
-            switch (size) {
-                case 0:
-                    marker.classList.add('size_1')
-                    marker.dataset.size = '1';
-                    break;
-                case 1:
-                    marker.classList.add('size_2')
-                    marker.dataset.size = '2';
-                    break;
-                case 2:
-                    marker.classList.add('size_3')
-                    marker.dataset.size = '3';
-                    break;
-            }
-            let x = 350 - Math.floor(Math.random() * 700);
-            let y = Math.floor(Math.random() * 400);
-            marker.style.transform = 'translate(' + x + 'px,-50%)'
-            marker.style.top = y + 'px';
-            marker.style.left = '50%';
-            if(x < 0){
-                marker.dataset.left = '1';
-            }
-            markers_field.appendChild(marker);
-        }
-    }
-
-    let style_anim = () => {
-        let markers = document.querySelectorAll('.power_marker');
-        let x = 0;
-        let y = 0;
-        let green = [];
-        let red = [];
-        let orange = [];
-        let yellow = []
-        markers.forEach(item => {
-            switch (item.dataset.color) {
-                case 'red':
-                    red.push(item);
-                    break;
-                case 'orange':
-                    orange.push(item);
-                    break;
-                case 'yellow':
-                    yellow.push(item);
-                    break;
-                case 'green':
-                    green.push(item);
-                    break;
-            }
-        })
-        red.forEach((item, index) => {
-            if(index < red.length / 3){
-                x = item.dataset.left ? - Math.floor(Math.random() * 270) : Math.floor(Math.random() * 270);
-                y = 200 - (50-Math.floor(Math.random() * 100))
-            } else if(index < (red.length / 1.5)) {
-                x = item.dataset.left ? - Math.floor(Math.random() * 300) : Math.floor(Math.random() * 300);
-                y = 300 - (50 - Math.floor(Math.random() * 100))
-            } else {
-                x = item.dataset.left ? - Math.floor(Math.random() * 270 ) : Math.floor(Math.random() * 270);
-                y = 400 - (50 - Math.floor(Math.random() * 100))
-            }
-
-            switch (item.dataset.size) {
-                case '1':
-                    x -= size_1 / 2;
-                    break;
-                case '2':
-                    x -= size_2 / 2;
-                    break;
-                case '3':
-                    x -= size_3 / 2;
-                    break;
-            }
-
-            item.style.transform = 'translate(' + x + 'px,-50%)'
-            item.style.top = y + 'px';
-        });
-        orange.forEach((item, index) => {
-            if(index < orange.length / 3){
-                x = item.dataset.left ? - Math.floor(Math.random() * 250) : Math.floor(Math.random() * 250);
-                y = 500 - (50 - Math.floor(Math.random() * 100))
-            } else if(index < (orange.length / 1.5)) {
-                x = item.dataset.left ? - Math.floor(Math.random() * 205) : Math.floor(Math.random() * 205);
-                y = 600 - (50 - Math.floor(Math.random() * 100))
-            } else {
-                x = item.dataset.left ? - Math.floor(Math.random() * 180 ) : Math.floor(Math.random() * 180);
-                y = 700 - (50 - Math.floor(Math.random() * 100))
-            }
-
-            switch (item.dataset.size) {
-                case '1':
-                    x -= size_1 / 2;
-                    break;
-                case '2':
-                    x -= size_2 / 2;
-                    break;
-                case '3':
-                    x -= size_3 / 2;
-                    break;
-            }
-            item.style.transform = 'translate(' + x + 'px,-50%)'
-            item.style.top = y + 'px';
-        });
-        yellow.forEach((item, index) => {
-            if(index < yellow.length / 3){
-                x = item.dataset.left ? - Math.floor(Math.random() * 155) : Math.floor(Math.random() * 155);
-                y = 800 - (50 - Math.floor(Math.random() * 100))
-            } else if(index < (yellow.length / 1.5)) {
-                x = item.dataset.left ? - Math.floor(Math.random() * 135) : Math.floor(Math.random() * 135);
-                y = 900 - (50 - Math.floor(Math.random() * 100))
-            } else {
-                x = item.dataset.left ? - Math.floor(Math.random() * 110 ) : Math.floor(Math.random() * 110);
-                y = 1000 - (50 - Math.floor(Math.random() * 100))
-            }
-
-            switch (item.dataset.size) {
-                case '1':
-                    x -= size_1 / 2;
-                    break;
-                case '2':
-                    x -= size_2 / 2;
-                    break;
-                case '3':
-                    x -= size_3 / 2;
-                    break;
-            }
-            item.style.transform = 'translate(' + x + 'px,-50%)'
-            item.style.top = y + 'px';
-        });
-        green.forEach((item, index) => {
-            if(index < green.length / 3){
-                x = item.dataset.left ? - Math.floor(Math.random() * 90) : Math.floor(Math.random() * 90);
-                y = 1100 - (50 - Math.floor(Math.random() * 100))
-            } else if(index < (green.length / 1.5)) {
-                x = item.dataset.left ? - Math.floor(Math.random() * 60) : Math.floor(Math.random() * 60);
-                y = 1200 - (50 - Math.floor(Math.random() * 100))
-            } else {
-                x = item.dataset.left ? - Math.floor(Math.random() * 35 ) : Math.floor(Math.random() * 35);
-                y = 1300 - (50 - Math.floor(Math.random() * 100))
-            }
-
-            switch (item.dataset.size) {
-                case '1':
-                    x -= size_1 / 2;
-                    break;
-                case '2':
-                    x -= size_2 / 2;
-                    break;
-                case '3':
-                    x -= size_3 / 2;
-                    break;
-            }
-            item.style.transform = 'translate(' + x + 'px,-50%)'
-            item.style.top = y + 'px';
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        build_markers();
-        setTimeout(style_anim, 3000)
-    })
-</script>
 
 
 <section class="cta bg-light">
@@ -558,5 +357,386 @@
         speed: 1500
     });
 </script>
+
+<style>
+    #planning_row {
+        position: absolute;
+        top: 100px;
+        width: 100%;
+    }
+
+    #execution_row {
+        position: absolute;
+        top: 600px;
+        width: 90%;
+        right: 0;
+    }
+
+    #monitoring_row {
+        position: absolute;
+        top: 1100px;
+        width: 90%;
+        margin: 0 auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #planning_row .card, #monitoring_row .card, #execution_row .card {
+        width: 350px;
+    }
+
+    #planning_row .card .card-body, #monitoring_row .card .card-body, #execution_row .card .card-body {
+        display: none;
+    }
+
+    .metric_line {
+        width: 20px;
+        height: 160px;
+        background: linear-gradient(180deg, #FF0000 0%, #FE0200 6.67%, #F90900 13.33%, #F21500 20%, #F82800 26.67%, #F14100 33.33%, #EF6502 40%, #E28A00 46.67%, #EECB00 53.33%, #FFE600 60%, #CAEB02 66.67%, #C0F000 72.4%, #6EEA00 80%, #67F600 86.67%, #62FD00 93.33%, #61FF00 100%);
+        border-radius: 50px;
+        /* Inside auto layout */
+    }
+
+    #cone {
+        padding-top: 100px;
+    }
+
+    #cone::selection {
+        background: transparent;
+    }
+
+    #cone img {
+        width: 600px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #cone img::selection {
+        background: transparent;
+    }
+
+    #power-container {
+        position: relative;
+    }
+
+    #markers_field {
+        width: 700px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .power_marker {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 100%;
+    }
+
+    .power_marker {
+        position: absolute;
+        border-radius: 100%;
+        transition: all 1.2s ease-in;
+        background-blend-mode: color-dodge;
+        mix-blend-mode: hard-light;
+    }
+
+    .power_marker.size_1 {
+        width: 18px;
+        height: 18px;
+    }
+
+    .power_marker.size_2 {
+        width: 24px;
+        height: 24px;
+    }
+
+    .power_marker.size_3 {
+        width: 32px;
+        height: 32px;
+    }
+
+    .power_marker.marker_red {
+        background: radial-gradient(
+                43.03% 42.89% at 50% 50.27%,
+                #DF0003 3%,
+                #DF0003 15.1%,
+                rgba(223, 0, 3, 0.73) 44.27%,
+                rgba(223, 0, 3, 0) 100%)
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    }
+
+    .power_marker.marker_orange {
+        background: radial-gradient(43.03% 42.89% at 50% 50.27%, #F7A22D 3%, #F7A22D 15.1%, rgba(247, 162, 45, 0.73) 44.27%, rgba(247, 162, 45, 0) 100%);
+    }
+
+    .power_marker.marker_yellow {
+        background: radial-gradient(43.03% 42.89% at 50% 50.27%, #FEFE00 3%, #FEFE00 15.1%, rgba(254, 254, 0, 0.73) 44.27%, rgba(254, 254, 0, 0) 100%);
+    }
+
+    .power_marker.marker_green {
+        background: radial-gradient(43.03% 42.89% at 50% 50.27%, #53ED29 3%, #53ED29 15.1%, rgba(83, 237, 41, 0.73) 30.73%, rgba(83, 237, 41, 0) 100%);
+    }
+
+    .container-lg {
+        padding-top: 150px;
+        padding-bottom: 200px;
+    }
+
+    @media (min-width: 1360px) {
+        .container-lg {
+            max-width: 1300px;
+        }
+    }
+    .close-button {
+        position:relative;
+        width:28px;
+        height:28px;
+    }
+    .close-button span{
+        height:3px;
+        width: 100%;
+        background:white;
+        display:block;
+        border-radius: 10px;
+        position:absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s linear;
+    }
+
+
+    .card:not(.open) .close-button span:nth-child(2){
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+</style>
+<script>
+    const isInViewport = (elem) => {
+        let bounding = elem.getBoundingClientRect();
+        return (
+            bounding.top >= 0 &&
+            bounding.left >= 0 &&
+            bounding.bottom + 150 <= (window.innerHeight || document.documentElement.clientHeight) &&
+            bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    };
+    const size_1 = 16;
+    const size_2 = 24;
+    const size_3 = 32;
+    const build_markers = () => {
+        let markers_field = document.getElementById('markers_field');
+
+        const marker_radius = 8;
+
+        for (let i = 0; i <= 300; i++) {
+            let marker = document.createElement('span');
+            marker.classList.add('power_marker');
+            let color = Math.floor(Math.random() * 4);
+            switch (color) {
+                case 0:
+                    marker.classList.add('marker_red')
+                    marker.dataset.color = 'red';
+                    break;
+                case 1:
+                    marker.classList.add('marker_orange')
+                    marker.dataset.color = 'orange';
+                    break;
+                case 2:
+                    marker.classList.add('marker_yellow')
+                    marker.dataset.color = 'yellow';
+                    break;
+                case 3:
+                    marker.classList.add('marker_green')
+                    marker.dataset.color = 'green';
+                    break;
+            }
+            let size = Math.floor(Math.random() * 3);
+            switch (size) {
+                case 0:
+                    marker.classList.add('size_1')
+                    marker.dataset.size = '1';
+                    break;
+                case 1:
+                    marker.classList.add('size_2')
+                    marker.dataset.size = '2';
+                    break;
+                case 2:
+                    marker.classList.add('size_3')
+                    marker.dataset.size = '3';
+                    break;
+            }
+            let x = 350 - Math.floor(Math.random() * 700);
+            let y = Math.floor(Math.random() * 400);
+            marker.style.transform = 'translate(' + x + 'px,-50%)'
+            marker.style.top = y + 'px';
+            marker.style.left = '50%';
+            if (x < 0) {
+                marker.dataset.left = '1';
+            }
+            markers_field.appendChild(marker);
+        }
+    }
+
+    const style_anim = () => {
+        let markers = document.querySelectorAll('.power_marker');
+        let x = 0;
+        let y = 0;
+        let green = [];
+        let red = [];
+        let orange = [];
+        let yellow = []
+        markers.forEach(item => {
+            switch (item.dataset.color) {
+                case 'red':
+                    red.push(item);
+                    break;
+                case 'orange':
+                    orange.push(item);
+                    break;
+                case 'yellow':
+                    yellow.push(item);
+                    break;
+                case 'green':
+                    green.push(item);
+                    break;
+            }
+        })
+        red.forEach((item, index) => {
+            if (index < red.length / 3) {
+                x = item.dataset.left ? -Math.floor(Math.random() * 270) : Math.floor(Math.random() * 270);
+                y = 200 - (50 - Math.floor(Math.random() * 100))
+            } else if (index < (red.length / 1.5)) {
+                x = item.dataset.left ? -Math.floor(Math.random() * 300) : Math.floor(Math.random() * 300);
+                y = 300 - (50 - Math.floor(Math.random() * 100))
+            } else {
+                x = item.dataset.left ? -Math.floor(Math.random() * 270) : Math.floor(Math.random() * 270);
+                y = 400 - (50 - Math.floor(Math.random() * 100))
+            }
+
+            switch (item.dataset.size) {
+                case '1':
+                    x -= size_1 / 2;
+                    break;
+                case '2':
+                    x -= size_2 / 2;
+                    break;
+                case '3':
+                    x -= size_3 / 2;
+                    break;
+            }
+
+            item.style.transform = 'translate(' + x + 'px,-50%)'
+            item.style.top = y + 'px';
+        });
+        orange.forEach((item, index) => {
+            if (index < orange.length / 3) {
+                x = item.dataset.left ? -Math.floor(Math.random() * 250) : Math.floor(Math.random() * 250);
+                y = 500 - (50 - Math.floor(Math.random() * 100))
+            } else if (index < (orange.length / 1.5)) {
+                x = item.dataset.left ? -Math.floor(Math.random() * 205) : Math.floor(Math.random() * 205);
+                y = 600 - (50 - Math.floor(Math.random() * 100))
+            } else {
+                x = item.dataset.left ? -Math.floor(Math.random() * 180) : Math.floor(Math.random() * 180);
+                y = 700 - (50 - Math.floor(Math.random() * 100))
+            }
+
+            switch (item.dataset.size) {
+                case '1':
+                    x -= size_1 / 2;
+                    break;
+                case '2':
+                    x -= size_2 / 2;
+                    break;
+                case '3':
+                    x -= size_3 / 2;
+                    break;
+            }
+            item.style.transform = 'translate(' + x + 'px,-50%)'
+            item.style.top = y + 'px';
+        });
+        yellow.forEach((item, index) => {
+            if (index < yellow.length / 3) {
+                x = item.dataset.left ? -Math.floor(Math.random() * 155) : Math.floor(Math.random() * 155);
+                y = 800 - (50 - Math.floor(Math.random() * 100))
+            } else if (index < (yellow.length / 1.5)) {
+                x = item.dataset.left ? -Math.floor(Math.random() * 135) : Math.floor(Math.random() * 135);
+                y = 900 - (50 - Math.floor(Math.random() * 100))
+            } else {
+                x = item.dataset.left ? -Math.floor(Math.random() * 110) : Math.floor(Math.random() * 110);
+                y = 1000 - (50 - Math.floor(Math.random() * 100))
+            }
+
+            switch (item.dataset.size) {
+                case '1':
+                    x -= size_1 / 2;
+                    break;
+                case '2':
+                    x -= size_2 / 2;
+                    break;
+                case '3':
+                    x -= size_3 / 2;
+                    break;
+            }
+            item.style.transform = 'translate(' + x + 'px,-50%)'
+            item.style.top = y + 'px';
+        });
+        green.forEach((item, index) => {
+            if (index < green.length / 3) {
+                x = item.dataset.left ? -Math.floor(Math.random() * 90) : Math.floor(Math.random() * 90);
+                y = 1100 - (50 - Math.floor(Math.random() * 100))
+            } else if (index < (green.length / 1.5)) {
+                x = item.dataset.left ? -Math.floor(Math.random() * 60) : Math.floor(Math.random() * 60);
+                y = 1200 - (50 - Math.floor(Math.random() * 100))
+            } else {
+                x = item.dataset.left ? -Math.floor(Math.random() * 35) : Math.floor(Math.random() * 35);
+                y = 1300 - (50 - Math.floor(Math.random() * 100))
+            }
+
+            switch (item.dataset.size) {
+                case '1':
+                    x -= size_1 / 2;
+                    break;
+                case '2':
+                    x -= size_2 / 2;
+                    break;
+                case '3':
+                    x -= size_3 / 2;
+                    break;
+            }
+            item.style.transform = 'translate(' + x + 'px,-50%)'
+            item.style.top = y + 'px';
+        });
+    }
+    const scroll_anim = () => {
+        let ex_row = document.getElementById('execution_row');
+        let plan_row = document.getElementById('planning_row');
+        let mon_row = document.getElementById('monitoring_row');
+        if (isInViewport(ex_row)) {
+            $(ex_row).find('.card').addClass('open');
+            $(ex_row).find('.card-body').slideDown();
+        }
+        if (isInViewport(plan_row)) {
+            $(plan_row).find('.card').addClass('open');
+            $(plan_row).find('.card-body').slideDown();
+        }
+        if (isInViewport(mon_row)) {
+            $(plan_row).find('.card').addClass('open');
+            $(mon_row).find('.card-body').slideDown();
+        }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        scroll_anim();
+        build_markers();
+        setTimeout(style_anim, 3000)
+    })
+    $(document).ready(function () {
+        window.addEventListener('scroll', scroll_anim);
+    });
+</script>
+
+
 </body>
 </html>
