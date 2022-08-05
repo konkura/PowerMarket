@@ -142,12 +142,12 @@
   <div class="container container-lg ">
     <div id="power-container">
       <div id="markers_field"></div>
-      <div id="cone">
+      <div id="cone" class="d-none d-lg-block">
         <img src="/images/how_it_works/cone.svg" alt="Solar Power">
       </div>
-      <div id="planning_row" class="d-flex align-items-start justify-content-between">
+      <div id="planning_row" class="d-flex flex-column flex-lg-row align-items-start justify-content-between">
         <div class="card closed bg-transparent border">
-          <div class="card-header d-flex align-items-center justify-content-between py-3">
+          <div class="card-header d-flex  align-items-center justify-content-between py-3">
             <div class="h2 text-white mb-0">Planning</div>
             <div class="close-button">
               <span></span>
@@ -163,18 +163,18 @@
               accurate decision-making process.</p>
           </div>
         </div>
-        <div class="solar_situation d-flex justify-content-between">
-          <div class="d-flex flex-column justify-content-between text-white text-right mr-3">
+        <div class="solar_situation d-flex flex-column-reverse flex-lg-row justify-content-between">
+          <div class="d-flex flex-row flex-lg-column justify-content-between text-white text-right mr-3">
             <span>Non suitable for solar</span>
             <span>Ideal for solar</span>
           </div>
           <div class="metric_line"></div>
         </div>
       </div>
-      <div id="execution_row" class="d-flex align-items-start justify-content-between">
-        <div class="solar_situation d-flex justify-content-between">
+      <div id="execution_row" class="d-flex flex-column-reverse flex-lg-row align-items-start justify-content-between">
+        <div class="solar_situation d-flex flex-column flex-lg-row justify-content-between">
           <div class="metric_line"></div>
-          <div class="d-flex flex-column justify-content-between text-white text-left ml-3">
+          <div class="d-flex flex-row flex-lg-column justify-content-between text-white text-left ml-3">
             <span>Non suitable for solar</span>
             <span>Ideal for solar</span>
           </div>
@@ -196,7 +196,7 @@
           </div>
         </div>
       </div>
-      <div id="monitoring_row" class="d-flex align-items-start justify-content-between">
+      <div id="monitoring_row" class="d-flex flex-column flex-lg-row align-items-start justify-content-between">
         <div class="card closed bg-transparent border">
           <div class="card-header d-flex align-items-center justify-content-between">
             <div class="h2 text-white mb-0">Monitoring</div>
@@ -215,8 +215,8 @@
               environment impact reporting generated at the click of a button.</p>
           </div>
         </div>
-        <div class="solar_situation d-flex justify-content-between">
-          <div class="d-flex flex-column justify-content-between text-white text-right mr-3">
+        <div class="solar_situation d-flex flex-column-reverse flex-lg-row justify-content-between">
+          <div class="d-flex flex-row flex-lg-column justify-content-between text-white text-right mr-3">
             <span>Non suitable for solar</span>
             <span>Ideal for solar</span>
           </div>
@@ -363,42 +363,108 @@
 </script>
 
 <style>
-    #planning_row {
-        position: absolute;
-        top: 100px;
-        width: 100%;
-    }
+    @media screen and (max-width: 990px) {
+        #planning_row {
+            margin-bottom: 100px;
+        }
 
-    #execution_row {
-        position: absolute;
-        top: 600px;
-        width: 90%;
-        right: 0;
-    }
+        #execution_row {
+            margin-bottom: 100px;
+        }
 
-    #monitoring_row {
-        position: absolute;
-        top: 1100px;
-        width: 90%;
-        margin: 0 auto;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+        #planning_row .card, #monitoring_row .card, #execution_row .card {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .solar_situation{
+            width: 100%;
+        }
 
-    #planning_row .card, #monitoring_row .card, #execution_row .card {
-        width: 350px;
+        .metric_line {
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, #FF0000 0%, #FE0200 6.67%, #F90900 13.33%, #F21500 20%, #F82800 26.67%, #F14100 33.33%, #EF6502 40%, #E28A00 46.67%, #EECB00 53.33%, #FFE600 60%, #CAEB02 66.67%, #C0F000 72.4%, #6EEA00 80%, #67F600 86.67%, #62FD00 93.33%, #61FF00 100%);
+            border-radius: 50px;
+            /* Inside auto layout */
+        }
+        #power-container {
+            padding-top: 200px;
+        }
+        .power_marker.size_1 {
+            width: 8px;
+            height: 8px;
+        }
+
+        .power_marker.size_2 {
+            width: 12px;
+            height: 12px;
+        }
+
+        .power_marker.size_3 {
+            width: 16px;
+            height: 16px;
+        }
+        .container-lg {
+            padding-top: 15px;
+            padding-bottom: 20px;
+        }
+    }
+    @media screen and (min-width: 991px) {
+
+        .container-lg {
+            padding-top: 150px;
+            padding-bottom: 200px;
+        }
+        .power_marker.size_1 {
+            width: 18px;
+            height: 18px;
+        }
+
+        .power_marker.size_2 {
+            width: 24px;
+            height: 24px;
+        }
+
+        .power_marker.size_3 {
+            width: 32px;
+            height: 32px;
+        }
+        .metric_line {
+            width: 20px;
+            height: 160px;
+            background: linear-gradient(180deg, #FF0000 0%, #FE0200 6.67%, #F90900 13.33%, #F21500 20%, #F82800 26.67%, #F14100 33.33%, #EF6502 40%, #E28A00 46.67%, #EECB00 53.33%, #FFE600 60%, #CAEB02 66.67%, #C0F000 72.4%, #6EEA00 80%, #67F600 86.67%, #62FD00 93.33%, #61FF00 100%);
+            border-radius: 50px;
+            /* Inside auto layout */
+        }
+        #planning_row {
+            position: absolute;
+            top: 100px;
+            width: 100%;
+        }
+
+        #execution_row {
+            position: absolute;
+            top: 600px;
+            width: 90%;
+            right: 0;
+        }
+
+        #monitoring_row {
+            position: absolute;
+            top: 1100px;
+            width: 90%;
+            margin: 0 auto;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #planning_row .card, #monitoring_row .card, #execution_row .card {
+            width: 350px;
+        }
     }
 
     #planning_row .card .card-body, #monitoring_row .card .card-body, #execution_row .card .card-body {
         display: none;
-    }
-
-    .metric_line {
-        width: 20px;
-        height: 160px;
-        background: linear-gradient(180deg, #FF0000 0%, #FE0200 6.67%, #F90900 13.33%, #F21500 20%, #F82800 26.67%, #F14100 33.33%, #EF6502 40%, #E28A00 46.67%, #EECB00 53.33%, #FFE600 60%, #CAEB02 66.67%, #C0F000 72.4%, #6EEA00 80%, #67F600 86.67%, #62FD00 93.33%, #61FF00 100%);
-        border-radius: 50px;
-        /* Inside auto layout */
     }
 
     #cone {
@@ -447,21 +513,6 @@
         mix-blend-mode: hard-light;
     }
 
-    .power_marker.size_1 {
-        width: 18px;
-        height: 18px;
-    }
-
-    .power_marker.size_2 {
-        width: 24px;
-        height: 24px;
-    }
-
-    .power_marker.size_3 {
-        width: 32px;
-        height: 32px;
-    }
-
     .power_marker.marker_red {
         background: radial-gradient(
                 43.03% 42.89% at 50% 50.27%,
@@ -484,10 +535,6 @@
         background: radial-gradient(43.03% 42.89% at 50% 50.27%, #53ED29 3%, #53ED29 15.1%, rgba(83, 237, 41, 0.73) 30.73%, rgba(83, 237, 41, 0) 100%);
     }
 
-    .container-lg {
-        padding-top: 150px;
-        padding-bottom: 200px;
-    }
 
     @media (min-width: 1360px) {
         .container-lg {
@@ -528,15 +575,19 @@
             bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
         );
     };
-    const size_1 = 16;
-    const size_2 = 24;
-    const size_3 = 32;
+    const screen_mobile = window.innerWidth < 991
+    const size_1 = screen_mobile ? 8 : 16;
+    const size_2 = screen_mobile ? 12 : 24;
+    const size_3 = screen_mobile ? 16 : 32;
+
+
+    const markers_count = screen_mobile ? 200 : 300;
     const build_markers = () => {
         let markers_field = document.getElementById('markers_field');
 
         const marker_radius = 8;
 
-        for (let i = 0; i <= 300; i++) {
+        for (let i = 0; i <= markers_count; i++) {
             let marker = document.createElement('span');
             marker.classList.add('power_marker');
             let color = Math.floor(Math.random() * 4);
@@ -574,7 +625,7 @@
                     break;
             }
             let x = 350 - Math.floor(Math.random() * 700);
-            let y = Math.floor(Math.random() * 400);
+            let y = Math.floor(Math.random() * (screen_mobile ? 150 : 400));
             marker.style.transform = 'translate(' + x + 'px,-50%)'
             marker.style.top = y + 'px';
             marker.style.left = '50%';
@@ -615,17 +666,22 @@
             }
         })
         red.forEach((item, index) => {
-            if (index < red.length / 3) {
-                x = item.dataset.left ? -Math.floor(Math.random() * 270) : Math.floor(Math.random() * 270);
-                y = 200 - (50 - Math.floor(Math.random() * 100))
-            } else if (index < (red.length / 1.5)) {
-                x = item.dataset.left ? -Math.floor(Math.random() * 300) : Math.floor(Math.random() * 300);
-                y = 300 - (50 - Math.floor(Math.random() * 100))
+            if(screen_mobile) {
+                let width = window.innerWidth / 2;
+                x = item.dataset.left ? - ( width - Math.floor(Math.random() * 100)) : width - Math.floor(Math.random() * 100);
+                y = 300 - (150 - Math.floor(Math.random() * 300))
             } else {
-                x = item.dataset.left ? -Math.floor(Math.random() * 270) : Math.floor(Math.random() * 270);
-                y = 400 - (50 - Math.floor(Math.random() * 100))
+                if (index < red.length / 3) {
+                    x = item.dataset.left ? -Math.floor(Math.random() * 270) : Math.floor(Math.random() * 270);
+                    y = 200 - (50 - Math.floor(Math.random() * 100))
+                } else if (index < (red.length / 1.5)) {
+                    x = item.dataset.left ? -Math.floor(Math.random() * 300) : Math.floor(Math.random() * 300);
+                    y = 300 - (50 - Math.floor(Math.random() * 100))
+                } else {
+                    x = item.dataset.left ? -Math.floor(Math.random() * 270) : Math.floor(Math.random() * 270);
+                    y = 400 - (50 - Math.floor(Math.random() * 100))
+                }
             }
-
             switch (item.dataset.size) {
                 case '1':
                     x -= size_1 / 2;
@@ -642,15 +698,21 @@
             item.style.top = y + 'px';
         });
         orange.forEach((item, index) => {
-            if (index < orange.length / 3) {
-                x = item.dataset.left ? -Math.floor(Math.random() * 250) : Math.floor(Math.random() * 250);
-                y = 500 - (50 - Math.floor(Math.random() * 100))
-            } else if (index < (orange.length / 1.5)) {
-                x = item.dataset.left ? -Math.floor(Math.random() * 205) : Math.floor(Math.random() * 205);
-                y = 600 - (50 - Math.floor(Math.random() * 100))
+            if(screen_mobile){
+                let width = window.innerWidth / 2;
+                x = item.dataset.left ? - ( width - Math.floor(Math.random() * 100)) : width - Math.floor(Math.random() * 100);
+                y = 600 - (150 - Math.floor(Math.random() * 300))
             } else {
-                x = item.dataset.left ? -Math.floor(Math.random() * 180) : Math.floor(Math.random() * 180);
-                y = 700 - (50 - Math.floor(Math.random() * 100))
+                if (index < orange.length / 3) {
+                    x = item.dataset.left ? -Math.floor(Math.random() * 250) : Math.floor(Math.random() * 250);
+                    y = 500 - (50 - Math.floor(Math.random() * 100))
+                } else if (index < (orange.length / 1.5)) {
+                    x = item.dataset.left ? -Math.floor(Math.random() * 205) : Math.floor(Math.random() * 205);
+                    y = 600 - (50 - Math.floor(Math.random() * 100))
+                } else {
+                    x = item.dataset.left ? -Math.floor(Math.random() * 180) : Math.floor(Math.random() * 180);
+                    y = 700 - (50 - Math.floor(Math.random() * 100))
+                }
             }
 
             switch (item.dataset.size) {
@@ -668,15 +730,21 @@
             item.style.top = y + 'px';
         });
         yellow.forEach((item, index) => {
-            if (index < yellow.length / 3) {
-                x = item.dataset.left ? -Math.floor(Math.random() * 155) : Math.floor(Math.random() * 155);
-                y = 800 - (50 - Math.floor(Math.random() * 100))
-            } else if (index < (yellow.length / 1.5)) {
-                x = item.dataset.left ? -Math.floor(Math.random() * 135) : Math.floor(Math.random() * 135);
-                y = 900 - (50 - Math.floor(Math.random() * 100))
+            if(screen_mobile){
+                let width = window.innerWidth / 2;
+                x = item.dataset.left ? - ( width - Math.floor(Math.random() * 100)) : width - Math.floor(Math.random() * 100);
+                y = 900 - (150 - Math.floor(Math.random() * 300))
             } else {
-                x = item.dataset.left ? -Math.floor(Math.random() * 110) : Math.floor(Math.random() * 110);
-                y = 1000 - (50 - Math.floor(Math.random() * 100))
+                if (index < yellow.length / 3) {
+                    x = item.dataset.left ? -Math.floor(Math.random() * 155) : Math.floor(Math.random() * 155);
+                    y = 800 - (50 - Math.floor(Math.random() * 100))
+                } else if (index < (yellow.length / 1.5)) {
+                    x = item.dataset.left ? -Math.floor(Math.random() * 135) : Math.floor(Math.random() * 135);
+                    y = 900 - (50 - Math.floor(Math.random() * 100))
+                } else {
+                    x = item.dataset.left ? -Math.floor(Math.random() * 110) : Math.floor(Math.random() * 110);
+                    y = 1000 - (50 - Math.floor(Math.random() * 100))
+                }
             }
 
             switch (item.dataset.size) {
@@ -694,15 +762,21 @@
             item.style.top = y + 'px';
         });
         green.forEach((item, index) => {
-            if (index < green.length / 3) {
-                x = item.dataset.left ? -Math.floor(Math.random() * 90) : Math.floor(Math.random() * 90);
-                y = 1100 - (50 - Math.floor(Math.random() * 100))
-            } else if (index < (green.length / 1.5)) {
-                x = item.dataset.left ? -Math.floor(Math.random() * 60) : Math.floor(Math.random() * 60);
-                y = 1200 - (50 - Math.floor(Math.random() * 100))
+            if(screen_mobile){
+                let width = window.innerWidth / 2;
+                x = item.dataset.left ? - ( width - Math.floor(Math.random() * 100)) : width - Math.floor(Math.random() * 100);
+                y = 1200 - (150 - Math.floor(Math.random() * 300))
             } else {
-                x = item.dataset.left ? -Math.floor(Math.random() * 35) : Math.floor(Math.random() * 35);
-                y = 1300 - (50 - Math.floor(Math.random() * 100))
+                if (index < green.length / 3) {
+                    x = item.dataset.left ? -Math.floor(Math.random() * 90) : Math.floor(Math.random() * 90);
+                    y = 1100 - (50 - Math.floor(Math.random() * 100))
+                } else if (index < (green.length / 1.5)) {
+                    x = item.dataset.left ? -Math.floor(Math.random() * 60) : Math.floor(Math.random() * 60);
+                    y = 1200 - (50 - Math.floor(Math.random() * 100))
+                } else {
+                    x = item.dataset.left ? -Math.floor(Math.random() * 35) : Math.floor(Math.random() * 35);
+                    y = 1300 - (50 - Math.floor(Math.random() * 100))
+                }
             }
 
             switch (item.dataset.size) {
@@ -729,7 +803,7 @@
         }
         markers.forEach(marker => {
             let x = marker.dataset.left ? - Math.floor(Math.random() * 350) : Math.floor(Math.random() * 350);
-            let y = Math.floor(Math.random() * 400);
+            let y = Math.floor(Math.random() * (screen_mobile ? 150 : 400));
             marker.style.transform = 'translate(' + x + 'px,-50%)'
             marker.style.top = y + 'px';
         })
@@ -738,11 +812,7 @@
     let scroll_down = false;
     const scroll_anim = (e) => {
         let st = window.scrollY || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-        if (st > lastScrollTop) {
-            scroll_down = true;
-        } else {
-            scroll_down = false;
-        }
+        scroll_down = st > lastScrollTop;
         lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
 
         let ex_row = document.getElementById('execution_row');
@@ -759,7 +829,7 @@
                 $(ex_row).find('.card-body').slideDown('slow');
             }
             if (isInViewport(mon_row, 100)) {
-                $(plan_row).find('.card').addClass('open');
+                $(mon_row).find('.card').addClass('open');
                 $(mon_row).find('.card-body').slideDown('slow');
             }
         } else {
