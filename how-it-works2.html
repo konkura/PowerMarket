@@ -388,7 +388,7 @@
             /* Inside auto layout */
         }
         #power-container {
-            padding-top: 200px;
+            padding-top: 130px;
         }
         .power_marker.size_1 {
             width: 8px;
@@ -491,11 +491,13 @@
 
     #markers_field {
         width: 700px;
+        max-width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
         left: 50%;
         transform: translateX(-50%);
+        overflow: hidden;
     }
 
     .power_marker {
@@ -581,7 +583,7 @@
     const size_3 = screen_mobile ? 16 : 32;
 
 
-    const markers_count = screen_mobile ? 200 : 300;
+    const markers_count = screen_mobile ? 120 : 300;
     const build_markers = () => {
         let markers_field = document.getElementById('markers_field');
 
@@ -624,8 +626,10 @@
                     marker.dataset.size = '3';
                     break;
             }
-            let x = 350 - Math.floor(Math.random() * 700);
-            let y = Math.floor(Math.random() * (screen_mobile ? 150 : 400));
+
+            console.log(window.innerWidth)
+            let x = ! screen_mobile ? 350 - Math.floor(Math.random() * 700) : ((window.innerWidth / 2 - 20) - Math.floor(Math.random() * (window.innerWidth -30)));
+            let y = Math.floor(Math.random() * (screen_mobile ? 100 : 400));
             marker.style.transform = 'translate(' + x + 'px,-50%)'
             marker.style.top = y + 'px';
             marker.style.left = '50%';
@@ -668,7 +672,7 @@
         red.forEach((item, index) => {
             if(screen_mobile) {
                 let width = window.innerWidth / 2;
-                x = item.dataset.left ? - ( width - Math.floor(Math.random() * 100)) : width - Math.floor(Math.random() * 100);
+                x = item.dataset.left ? - ( width - Math.floor(Math.random() * 50)) : width - Math.floor(Math.random() * 50);
                 y = 300 - (150 - Math.floor(Math.random() * 300))
             } else {
                 if (index < red.length / 3) {
@@ -700,7 +704,7 @@
         orange.forEach((item, index) => {
             if(screen_mobile){
                 let width = window.innerWidth / 2;
-                x = item.dataset.left ? - ( width - Math.floor(Math.random() * 100)) : width - Math.floor(Math.random() * 100);
+                x = item.dataset.left ? - ( width - Math.floor(Math.random() * 50)) : width - Math.floor(Math.random() * 50);
                 y = 600 - (150 - Math.floor(Math.random() * 300))
             } else {
                 if (index < orange.length / 3) {
@@ -732,7 +736,7 @@
         yellow.forEach((item, index) => {
             if(screen_mobile){
                 let width = window.innerWidth / 2;
-                x = item.dataset.left ? - ( width - Math.floor(Math.random() * 100)) : width - Math.floor(Math.random() * 100);
+                x = item.dataset.left ? - ( width - Math.floor(Math.random() * 50)) : width - Math.floor(Math.random() * 50);
                 y = 900 - (150 - Math.floor(Math.random() * 300))
             } else {
                 if (index < yellow.length / 3) {
@@ -764,7 +768,7 @@
         green.forEach((item, index) => {
             if(screen_mobile){
                 let width = window.innerWidth / 2;
-                x = item.dataset.left ? - ( width - Math.floor(Math.random() * 100)) : width - Math.floor(Math.random() * 100);
+                x = item.dataset.left ? - ( width - Math.floor(Math.random() * 50)) : width - Math.floor(Math.random() * 50);
                 y = 1200 - (150 - Math.floor(Math.random() * 300))
             } else {
                 if (index < green.length / 3) {
@@ -802,8 +806,8 @@
             animated = false;
         }
         markers.forEach(marker => {
-            let x = marker.dataset.left ? - Math.floor(Math.random() * 350) : Math.floor(Math.random() * 350);
-            let y = Math.floor(Math.random() * (screen_mobile ? 150 : 400));
+            let x = ! screen_mobile ? 350 - Math.floor(Math.random() * 700) : ((window.innerWidth / 2 - 20) - Math.floor(Math.random() * (window.innerWidth -30)));
+            let y = Math.floor(Math.random() * (screen_mobile ? 100 : 400));
             marker.style.transform = 'translate(' + x + 'px,-50%)'
             marker.style.top = y + 'px';
         })
@@ -843,7 +847,7 @@
                 $(ex_row).find('.card-body').slideUp('slow');
             }
             if (!isInViewport(mon_row, 400)) {
-                $(plan_row).find('.card').removeClass('open');
+                $(mon_row).find('.card').removeClass('open');
                 $(mon_row).find('.card-body').slideUp('slow');
             }
 
