@@ -382,8 +382,15 @@ iframe {
 }
 
 .is-sticky .navbar-custom {
-    margin-top: 0px;
+    margin-top: 0;
     padding: 10px 0px;
+    background-color: #272a33;
+    -moz-box-shadow: 0 10px 33px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 0 10px 33px rgba(0, 0, 0, .1);
+    box-shadow: 0 10px 33px rgba(0, 0, 0, .1);
+}
+.navbar-custom.sticky-always {
+    margin-top: 0;
     background-color: #272a33;
     -moz-box-shadow: 0 10px 33px rgba(0, 0, 0, .1);
     -webkit-box-shadow: 0 10px 33px rgba(0, 0, 0, .1);
