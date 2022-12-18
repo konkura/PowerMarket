@@ -1632,3 +1632,55 @@ textarea.form-control {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
+
+
+.calc_section .btn.btn-custom{
+    font-size: 15px;
+    line-height: 18px;
+    padding: 11px 6rem;
+}
+
+.calc_section #request_form .btn.btn-custom{
+    background: #FF7A59!important;
+    border-color: #FF7A59!important;
+}
+.calc_section #request_form .btn.btn-custom.btn-close{
+    color:black;
+    background: transparent!important;
+    border-color: transparent!important;
+}
+.calc_section .form-control{
+    height: 42px;
+    margin-bottom: 0;
+}
+.calc_section .form-group{
+    position: relative;
+    padding-bottom: 15px;
+}
+.calc_section #request_form .form-group{
+    position: relative;
+    padding-bottom: 0;
+}
+
+
+.calc_section .form-control.error {
+    display: block;
+    margin-top: 0;
+}
+
+.calc_section .form-control.error + .error {
+    height: 16px;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+}
+.calc_section #request_form .form-control.error + .error {
+    height: 16px;
+    margin: 0;
+    position: absolute;
+    font-size: 14px;
+    bottom: -14px;
+}
+#request_form textarea[name='additional']{
+    min-height: 130px;
+}
