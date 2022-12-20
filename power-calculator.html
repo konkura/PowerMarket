@@ -343,7 +343,7 @@
                   <path d="M11.333 13.3334H19.333" stroke="#1BBC9D" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round"/>
                 </svg>
-                <span class="data_value_text text-uppercase"></span>
+                <span class="data_value_text "></span>
               </div>
             </div>
             <div class="col-md-6 mb-3" id="estimated_electricity">
@@ -354,7 +354,7 @@
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12.967 3L4.75 14H12L11.033 21L19.25 10H12L12.967 3Z"
                         stroke="#1BBC9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <span class="data_value_text text-uppercase">97 530kWh</span>
+                <span class="data_value_text ">97 530kWh</span>
               </div>
             </div>
             <div class="col-md-6 mb-4" id="system_cost">
@@ -385,7 +385,7 @@
                         d="M28 22.6666V14.2933C28.0001 13.4934 27.8203 12.7037 27.4739 11.9826C27.1275 11.2616 26.6233 10.6277 25.9987 10.128L20.1653 5.46131C18.9831 4.51529 17.5141 3.99988 16 3.99988C14.4859 3.99988 13.0169 4.51529 11.8347 5.46131L6.00133 10.128C5.3769 10.6276 4.87282 11.2612 4.52639 11.982C4.17996 12.7028 4.00006 13.4923 4 14.292V22.6666C4 24.0811 4.5619 25.4377 5.5621 26.4379C6.56229 27.4381 7.91885 28 9.33333 28H22.6667C24.0812 28 25.4377 27.4381 26.4379 26.4379C27.4381 25.4377 28 24.0811 28 22.6666Z"
                         stroke="#1BBC9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <span class="data_value_text text-uppercase">$95,125</span>
+                <span class="data_value_text ">$95,125</span>
               </div>
             </div>
             <div class="col-md-6 mb-4" id="estimated_payback_period">
@@ -408,7 +408,7 @@
                   <path d="M11.333 13.3334H19.333" stroke="#1BBC9D" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round"/>
                 </svg>
-                <span class="data_value_text text-uppercase  ">$311,463</span>
+                <span class="data_value_text   ">$311,463</span>
               </div>
             </div>
             <div class="col-md-6 mb-5" id="m_savings">
@@ -650,14 +650,33 @@
 
                     $.get(`https://developer.nrel.gov/api/pvwatts/v8.json?${params.toString()}`)
                         .then(data => {
+
+                            let system_cost = 0;
                             //todo calculate system_cost
-                            let system_cost = 1000 * capacity;
-                            let estimated_payback_period = system_cost / data.outputs.ac_annual;
+                            if(capacity < 3){
+                                system_cost = 1500 * capacity;
+                            } else if (capacity < 10){
+                                system_cost = 1200 * capacity;
+                            }else if (capacity < 50){
+                                system_cost = 1000 * capacity;
+                            }else if (capacity < 250){
+                                system_cost = 850 * capacity;
+                            }else if (capacity < 1000){
+                                system_cost = 600 * capacity;
+                            } else {
+                                system_cost = 500 * capacity;
+                            }
+
+                            console.log({capacity, system_cost, ac_annual: data.outputs.ac_annual})
+
+                            let fit_earning =  data.outputs.ac_annual * 0.55 * 0.2;
+                            let annual_savings = (data.outputs.ac_annual * Number($('input#price').val())).toFixed(2)
+                            let estimated_payback_period = system_cost / annual_savings;
 
                             document.querySelector('#estimated_payback_period .data_value_text').innerHTML = (estimated_payback_period).toFixed(1) + ' years';
                             document.querySelector('#system_cost .data_value_text').innerHTML = '£' + (system_cost).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
                             document.querySelector('#estimated_electricity .data_value_text').innerHTML = (data.outputs.ac_annual).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString() + 'kWh';
-                            document.querySelector('#annual_savings .data_value_text').innerHTML = '£' + (data.outputs.ac_annual * Number($('input#price').val())).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
+                            document.querySelector('#annual_savings .data_value_text').innerHTML = '£' + annual_savings.replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
                             $('#calcModal').modal('show');
 
                             const d1 = {
@@ -665,13 +684,13 @@
                                 datasets: [
                                     {
                                         label: 'Savings',
-                                        data: data.outputs.ac_monthly,
+                                        data: data.outputs.ac_monthly.slice(0).map(item => item * 0.34 * 0.8),
                                         backgroundColor: '#007BFF',
                                         borderRadius: 5,
                                     },
                                     {
                                         label: 'FiT Earnings',
-                                        data: data.outputs.ac_monthly.slice(0).map(item => item * 0.1),
+                                        data: data.outputs.ac_monthly.slice(0).map(item => item * 0.55 * 0.2),
                                         backgroundColor: '#1BBC9D',
                                         borderRadius: 5,
                                     },
@@ -688,7 +707,7 @@
                                     },
                                     {
                                         label: 'FiT Earnings',
-                                        data: [0, data.outputs.ac_annual * 3, data.outputs.ac_annual * 6, data.outputs.ac_annual * 9, data.outputs.ac_annual * 12, data.outputs.ac_annual * 15],
+                                        data: [0, annual_savings * 3, annual_savings * 6, annual_savings * 9, annual_savings * 12, annual_savings * 15],
                                         borderColor: '#1BBC9D',
                                         backgroundColor: gradient,
                                         fill: true,
