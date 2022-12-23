@@ -667,9 +667,8 @@
                                 system_cost = 500 * capacity;
                             }
 
-                            console.log({capacity, system_cost, ac_annual: data.outputs.ac_annual})
 
-                            let fit_earning =  data.outputs.ac_annual * 0.55 * 0.2;
+                            let fit_earning =  data.outputs.ac_annual * 0.055 * 0.2;
                             let annual_savings = (data.outputs.ac_annual * Number($('input#price').val())).toFixed(2)
                             let estimated_payback_period = system_cost / annual_savings;
 
@@ -690,7 +689,7 @@
                                     },
                                     {
                                         label: 'FiT Earnings',
-                                        data: data.outputs.ac_monthly.slice(0).map(item => item * 0.55 * 0.2),
+                                        data: data.outputs.ac_monthly.slice(0).map(item => item * 0.055 * 0.2),
                                         backgroundColor: '#1BBC9D',
                                         borderRadius: 5,
                                     },
