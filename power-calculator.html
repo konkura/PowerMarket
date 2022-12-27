@@ -171,7 +171,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="price">Electricity price</label>
-            <input class="form-control" name="price" id="price" placeholder="£0.7" value="0.7" type="number" min="0.01"
+            <input class="form-control" name="price" id="price" placeholder="£0.35" value="0.35" type="number" min="0.01"
                    step="0.01">
           </div>
 
@@ -633,7 +633,6 @@
 
                     if (capacity > 500000) {
                         capacity = 500000;
-                    } else {
                     }
                     const params = new URLSearchParams({
                         system_capacity: '' + capacity,
@@ -666,6 +665,8 @@
                             } else {
                                 system_cost = 500 * capacity;
                             }
+
+                            console.log({sqm,capacity,system_cost})
 
 
                             let fit_earning =  data.outputs.ac_annual * 0.055 * 0.2;
