@@ -629,7 +629,7 @@
 
                     $('input#average_bill').val();
 
-                    let capacity = (Math.floor(sqm) * 0.32);
+                    let capacity = (Math.floor(sqm) * 0.32) / 1.6;
 
                     if (capacity > 500000) {
                         capacity = 500000;
