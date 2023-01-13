@@ -1,70 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8ZMHLQ6VD"></script>
-  <script>
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag() {
-          dataLayer.push(arguments);
-      }
-
-      gtag('js', new Date());
-
-      gtag('config', 'G-V8ZMHLQ6VD');
-  </script>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Power Calculator | PowerMarket</title>
-  <meta name="description" content="Small Scale Solar: The Sleeping Catalyst for Net Zero"/>
-  <meta name="keywords"
-        content="solar, small-scale solar, mapping, solar mapping, large-scale solar, net zero, community solar"/>
-  <meta name="author" content="PowerMarket"/>
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="shortcut icon" href="images/favicon.ico">
-
-  <!-- Facebook and Twitter integration -->
-  <meta property="og:title" content="PowertMarket"/>
-  <meta property="og:image"
-        content="https://res.cloudinary.com/donw16xff/image/upload/v1607618130/48f55d01dc13cb7a47b4ddfcd95a8d3b.gif"/>
-  <meta property="og:url"
-        content="https://res.cloudinary.com/donw16xff/image/upload/v1607618130/48f55d01dc13cb7a47b4ddfcd95a8d3b.gif"/>
-  <meta property="og:site_name" content="PowerMarket"/>
-  <meta property="og:description" content="Power Calculator | Small Scale Solar: The Sleeping Catalyst for Net Zero"/>
-  <meta name="twitter:title" content="Power Calculator | Small Scale Solar: The Sleeping Catalyst for Net Zero"/>
-  <meta name="twitter:image"
-        content="https://res.cloudinary.com/donw16xff/image/upload/v1607618130/48f55d01dc13cb7a47b4ddfcd95a8d3b.gif"/>
-  <meta name="twitter:url" content="https://www.powermarket.ai/resources"/>
-  <meta name="twitter:card" content=""/>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Rubik:300,400,500" rel="stylesheet">
-
-  <!-- pe-icon-7 Css-->
-  <link rel="stylesheet" type="text/css" href="css/pe-icon-7-stroke.css"/>
-
-  <!--Material Icon -->
-  <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
-
-  <!-- Waves effect Css-->
-  <link rel="stylesheet" type="text/css" href="css/waves.css"/>
-
-  <!-- Bootstrap Css-->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-
-  <!-- Magnific-popup -->
-  <link rel="stylesheet" href="css/magnific-popup.css">
-
-  <!-- Custom Css -->
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  <link rel="stylesheet" href="css/colors/green.css">
-  <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/v2.js?pre=1"></script>
-
-</head>
-
 <body data-spy="scroll" data-target="#data-scroll" data-hijacking="on" data-animation="scaleDown">
 
 <!-- STRAT NAVBAR -->
@@ -188,8 +123,8 @@
           </button>
         </div>
       </div>
-
       <div id="map" style="height: 600px;"></div>
+      <button class="btn btn-danger float-right mt-4" style="display: none " id="delete-button" type="button">Delete selected polygon</button>
     </form>
     <!-- <p class="section-subtitle text-muted text-center font-secondary padding-t-30">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean class at a euismod mus luctus quam.</p> -->
   </div>
@@ -322,7 +257,7 @@
       </button>
       <div class="modal-body">
         <div id="data_value">
-          <div class="row">
+          <div class="row" id="canvas">
             <div class="col-md-6 mb-3" id="annual_savings">
               <h4 class="text-uppercase">Estimated annual savings</h4>
               <div class="media d-flex align-items-center">
@@ -419,20 +354,31 @@
               <h3 class="text-uppercase">Lifetime value vs costs</h3>
               <canvas id="lf_value_chart"></canvas>
             </div>
-
+          </div>
+          <div class="row">
             <div class="col-md-12">
               <form action="" id="request_form">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="name">Name</label>
-                      <input class="form-control" name="name" id="name" placeholder="Phillip">
+                      <label for="first_name">FirstName</label>
+                      <input class="form-control" name="first_name" id="first_name" placeholder="First Name">
                     </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="last_name">Last Name</label>
+                      <input class="form-control" name="last_name" id="last_name" placeholder="Last Name">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
                     <div class="form-group">
                       <label for="email">Email</label>
                       <input class="form-control" name="email" type="email" id="email"
                              placeholder="powermarket@mail.com">
                     </div>
+                  </div>
+                  <div class="col-md-6">
                     <div class="form-group">
                       <label for="email">Phone</label>
                       <input class="form-control" name="phone" type="tel" id="phone" placeholder="(217) 555-0113">
@@ -441,11 +387,18 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="buildings">How many buildings does your company have?</label>
-                      <input class="form-control" name="buildings" id="buildings" placeholder="123" type="number">
+                      <select class="form-control" name="buildings" id="buildings">
+                        <option value="1">1-5</option>
+                        <option value="2">5-10</option>
+                        <option value="1">10-15</option>
+                        <option value="1">15+</option>
+                      </select>
                     </div>
+                  </div>
+                  <div class="col-md-12">
                     <div class="form-group">
                       <label for="additional">Additional information</label>
-                      <textarea class="form-control" name="additional" type="email" id="additional"
+                      <textarea class="form-control" name="additional" id="additional"
                                 placeholder="Input any additional information here"></textarea>
                     </div>
                   </div>
@@ -463,6 +416,7 @@
                         class="btn btn-custom btn-close waves-effect waves-light mr-3">Close
                 </button>
               </form>
+              <div id="req_response" style="display:none; text-align: center; padding: 15px; font-size: 18px"></div>
             </div>
           </div>
         </div>
@@ -470,6 +424,7 @@
     </div>
   </div>
 </div>
+<input type="text" id="place-input" style="max-width: 300px;margin: 10px;" class="form-control">
 <canvas id="grad" style="display:none;"></canvas>
 
 <!-- JAVASCRIPTS -->
@@ -488,15 +443,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
-<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.3.0/mapbox-gl-draw.js'></script>
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
-<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css'/>
-<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.3.0/mapbox-gl-draw.css'
-      type='text/css'/>
-<link rel="stylesheet"
-      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
-      type="text/css">
+<script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 <style>
     .data_value_text {
@@ -517,6 +465,7 @@
 
 </style>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbg9iTAtdTfe_I36qqllB5e7UY6qR28jY&libraries=drawing,places">
 <script src="https://kit.fontawesome.com/59c302cd21.js" crossorigin="anonymous"></script>
 <script>
     const gradient = (document.getElementById('grad')).getContext('2d').createLinearGradient(0, 0, 0, 400);
@@ -528,72 +477,135 @@
     let bill = 0;
     let sqm = 0;
     let point = [0, 0];
+    let img = null;
+    let infoWindow;
+    let map;
+    let selectedShape;
+    let polys = [];
+    let drawingManager;
+    //AIzaSyDbg9iTAtdTfe_I36qqllB5e7UY6qR28jY
     const initMap = ($) => {
-        mapboxgl.accessToken = 'pk.eyJ1IjoicG93ZXJtYXJrZXQiLCJhIjoiY2s3b3ZncDJ0MDkwZTNlbWtoYWY2MTZ6ZCJ9.Ywq8CoJ8OHXlQ4voDr4zow';
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/satellite-v9',
-            center: [3.465657, 52.428063],
+        const input = document.getElementById("place-input");
+        const searchBox = new google.maps.places.SearchBox(input);
+        map = new google.maps.Map(document.getElementById('map'), {
             zoom: 5,
-            antialias: true,
-            pitch: 10,
+            center: new google.maps.LatLng(52.428063,3.465657),
+            mapTypeId: google.maps.MapTypeId.HYBRID,
+            tilt: 0,
+            streetViewControl: false,
+            rotateControl: false,
+            mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                position: google.maps.ControlPosition.BOTTOM_LEFT,
+            },
         });
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-        var draw = new MapboxDraw({
-            displayControlsDefault: false,
-            controls: {
-                polygon: true,
-                trash: true
+        drawingManager = new google.maps.drawing.DrawingManager({
+            drawingMode: google.maps.drawing.OverlayType.POLYGON,
+            drawingControl: true,
+            drawingControlOptions: {
+                position: google.maps.ControlPosition.TOP_CENTER,
+                drawingModes: [google.maps.drawing.OverlayType.POLYGON]
+            },
+            polygonOptions: {
+            },
+        });
+        drawingManager.setMap(map);
+        infoWindow = new google.maps.InfoWindow();
+
+        searchBox.addListener("places_changed", () => {
+            const places = searchBox.getPlaces();
+
+            if (places.length == 0) {
+                return;
             }
+            // For each place, get the icon, name and location.
+            const bounds = new google.maps.LatLngBounds();
+
+            places.forEach((place) => {
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
         });
-        const geocoder = new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            mapboxgl: mapboxgl,
-            marker: false
-        });
 
-        map.addControl(geocoder, 'top-left');
-// Map#addControl takes an optional second argument to set the position of the control.
-// If no position is specified the control defaults to `top-right`. See the docs
-// for more details: https://docs.mapbox.com/mapbox-gl-js/api/#map#addcontrol
+        google.maps.event.addListener(drawingManager, "polygoncomplete", function(event) {
+            drawingManager.setDrawingMode(null);
+            event.custom_id = Date.now();
+            polys.push(event)
+            google.maps.event.addListener(event, 'click', function() {
+                setSelection(event);
+            });
+            setSelection(event);
 
-        map.addControl(draw, 'top-right');
-
-        const nav = new mapboxgl.NavigationControl({
-            showCompass: false,
-        });
-
-        map.addControl(nav, 'bottom-left');
-        const updateArea = (e) => {
-            const data = draw.getAll();
-            if (data.features.length > 0) {
-                const area = turf.area(data);
-                sqm = Math.round(area * 100) / 100;
-                // lon / lat
-                point = [0, 0];
-                data.features[0].geometry.coordinates[0].forEach(p => {
-                    point[0] += p[0];
-                    point[1] += p[1];
-                })
-                point[0] = point[0] / data.features[0].geometry.coordinates[0].length
-                point[1] = point[1] / data.features[0].geometry.coordinates[0].length
-            } else {
-                sqm = 0
-                point = [0, 0];
-                if (e.type !== 'draw.delete')
-                    console.log(`Click the map to draw a polygon.`)
+            // if(google.maps.geometry.spherical.computeArea(event.getPath())){
+            //     polys.push(event);
+            //     showInfo(event)
+            // } else {
+            //     event
+            // }
+        })
+        function clearSelection() {
+            if (selectedShape) {
+                selectedShape.setEditable(false);
+                selectedShape = null;
+                document.getElementById('delete-button').style.display = 'none';
+                infoWindow.close();
             }
-            $("#calc_form").valid();
-
         }
-        map.on('draw.create', updateArea);
-        map.on('draw.delete', updateArea);
-        map.on('draw.update', updateArea);
+
+        function setSelection(shape) {
+            clearSelection();
+            selectedShape = shape;
+            shape.setEditable(true);
+            showInfo(shape)
+            document.getElementById('delete-button').style.display = 'block';
+
+            sqm = 0;
+            polys.forEach(poly => {
+                sqm += (google.maps.geometry.spherical.computeArea(poly.getPath()));
+            })
+        }
+
+        function deleteSelectedShape() {
+            if (selectedShape) {
+                selectedShape.setMap(null);
+                polys = polys.filter(item => item.custom_id !== selectedShape.custom_id)
+                infoWindow.close();
+                document.getElementById('delete-button').style.display = 'none';
+            }
+        }
+        google.maps.event.addListener(drawingManager, 'drawingmode_changed', clearSelection);
+        google.maps.event.addListener(map, 'click', clearSelection);
+        google.maps.event.addDomListener(document.getElementById('delete-button'), 'click', deleteSelectedShape);
+        function showInfo(event) {
+            // Since this polygon has only one path, we can call getPath() to return the
+            // MVCArray of LatLngs.
+            // @ts-ignore
+            let event_sqm = (google.maps.geometry.spherical.computeArea(event.getPath()));
+            let contentString = 'Area: '+event_sqm.toFixed(2)+ 'sqm';
+
+            // Replace the info window's content and position.
+            infoWindow.setContent(contentString);
+            infoWindow.setPosition(new google.maps.LatLng(event.getPaths().getArray()[0].getArray()[0].lat(), event.getPaths().getArray()[0].getArray()[0].lng()));
+
+            infoWindow.open(map);
+        }
     }
     (function ($) {
         $(document).ready(function () {
             $.validator.addMethod("sqm", () => {
-                return sqm > 0;
+                return polys.length > 0;
             }, "Create at least one polygon on map");
             initMap($);
             $('#calc_form').validate({
@@ -765,15 +777,16 @@
                                     maintainAspectRatio: false,
                                 }
                             });
-
                         });
-
                 }
             })
 
             $('#request_form').validate({
                 rules: {
-                    name: {
+                    first_name: {
+                        required: true,
+                    },
+                    last_name: {
                         required: true,
                     },
                     email: {
@@ -784,7 +797,10 @@
                     },
                 },
                 messages: {
-                    name: {
+                    first_name: {
+                        required: 'Fill this field',
+                    },
+                    last_name: {
                         required: 'Fill this field',
                     },
                     email: {
@@ -800,7 +816,35 @@
                 event.stopPropagation();
                 const isvalid = $("#request_form").valid();
                 if (isvalid) {
-                    console.log('test')
+                    html2canvas($("#canvas")[0]).then((canvas) => {
+                        const imgData = canvas.toDataURL(
+                            'image/png');
+                        const doc = new jspdf.jsPDF('p', 'mm');
+                        doc.addImage(imgData, 'PNG', 5, 5);
+                        let f_data = new FormData();
+                        const form = $('#request_form').serializeArray();
+                        form.forEach(f => {
+                            f_data.append(f.name, f.value)
+                        })
+                        f_data.append('pdf', doc.output('blob'))
+                        $.ajax({
+                            url : 'http://localhost:8000/calculator',
+                            data : f_data,
+                            type : 'POST',
+                            processData: false,
+                            contentType: false,
+                        }).then(data => {
+                            console.log('success', data)
+                            $('#request_form').hide();
+                            $('#req_response').html('Success')
+                            $('#req_response').show();
+                        }).catch(err => {
+                            console.log('err', err)
+                            $('#request_form').hide();
+                            $('#req_response').html('Oops, something went wrong. Please refresh page, and try again.')
+                            $('#req_response').show();
+                        })
+                    });
                 }
             })
         })
@@ -808,4 +852,69 @@
 </script>
 
 </body>
+
+<head>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8ZMHLQ6VD"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+          dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+
+      gtag('config', 'G-V8ZMHLQ6VD');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Power Calculator | PowerMarket</title>
+  <meta name="description" content="Small Scale Solar: The Sleeping Catalyst for Net Zero"/>
+  <meta name="keywords"
+        content="solar, small-scale solar, mapping, solar mapping, large-scale solar, net zero, community solar"/>
+  <meta name="author" content="PowerMarket"/>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="shortcut icon" href="images/favicon.ico">
+
+  <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content="PowertMarket"/>
+  <meta property="og:image"
+        content="https://res.cloudinary.com/donw16xff/image/upload/v1607618130/48f55d01dc13cb7a47b4ddfcd95a8d3b.gif"/>
+  <meta property="og:url"
+        content="https://res.cloudinary.com/donw16xff/image/upload/v1607618130/48f55d01dc13cb7a47b4ddfcd95a8d3b.gif"/>
+  <meta property="og:site_name" content="PowerMarket"/>
+  <meta property="og:description" content="Power Calculator | Small Scale Solar: The Sleeping Catalyst for Net Zero"/>
+  <meta name="twitter:title" content="Power Calculator | Small Scale Solar: The Sleeping Catalyst for Net Zero"/>
+  <meta name="twitter:image"
+        content="https://res.cloudinary.com/donw16xff/image/upload/v1607618130/48f55d01dc13cb7a47b4ddfcd95a8d3b.gif"/>
+  <meta name="twitter:url" content="https://www.powermarket.ai/resources"/>
+  <meta name="twitter:card" content=""/>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Rubik:300,400,500" rel="stylesheet">
+
+  <!-- pe-icon-7 Css-->
+  <link rel="stylesheet" type="text/css" href="css/pe-icon-7-stroke.css"/>
+
+  <!--Material Icon -->
+  <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
+
+  <!-- Waves effect Css-->
+  <link rel="stylesheet" type="text/css" href="css/waves.css"/>
+
+  <!-- Bootstrap Css-->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+
+  <!-- Magnific-popup -->
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <!-- Custom Css -->
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <link rel="stylesheet" href="css/colors/green.css">
+  <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/v2.js?pre=1"></script>
+
+</head>
 </html>
