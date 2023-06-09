@@ -1684,3 +1684,9 @@ textarea.form-control {
 #request_form textarea[name='additional']{
     min-height: 130px;
 }
+
+img {
+    width: auto;
+    max-width: 100%;
+}
+
